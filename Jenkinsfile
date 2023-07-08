@@ -32,10 +32,10 @@ node{
 		//environment{
 		//nexusPassword=credentialsId('nexusPass')
 	//}
-		withCredentials([string (credentialsId: 'nexusPass' , variable :'nexusPassword')]){
- 	  sh "sudo docker login -u admin -p ${nexusPassword}"
+		withCredentials([string (credentialsId: 'dockerPass' , variable :'dockerPassword')]){
+ 	  sh "docker login -u admin -p ${dockerPassword} 3.110.43.79:8084"
 		}
- 	  sh 'sudo docker tag sabarinathand96/myweb:0.0.2 3.110.43.79:8084/sabari:1.0.0'
+ 	  sh 'docker tag sabarinathand96/myweb:0.0.2 3.110.43.79:8084/sabari:1.0.0'
 		
  	  sh 'docker push 3.110.43.79:8084/sabari:1.0.0'
 		}

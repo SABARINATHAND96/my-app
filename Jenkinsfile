@@ -1,5 +1,8 @@
 
 node{
+	environment {
+       EXAMPLE_CREDS = credentialsId('nexus')
+        }
    stage('SCM Checkout'){
      git 'https://github.com/SABARINATHAND96/my-app.git'
    }
@@ -25,9 +28,7 @@ node{
 	}
 	sh "docker push sabarinathand96/myweb:0.0.2"
 	}
-	environment {
-       EXAMPLE_CREDS = credentialsId('nexus')
-        }
+	
 	stage('Nexus Image Push'){
 		{
  	  sh "docker login -u admin -p ${EXAMPLE_CREDS} 3.110.43.79:8083"

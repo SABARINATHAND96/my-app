@@ -26,16 +26,13 @@ node{
 	}
 	sh "docker push sabarinathand96/myweb:0.0.2"
 	}
-	environment {
-       EXAMPLE_CREDS = credentialsId('nexus')
-        }
 	
 	stage('Nexus Image Push'){
-		withCredentials([string (credentialsId: 'nexusPass' , variable :'nexusPassword')]) {
 		
- 	  sh "docker login -u admin -p ${nexusPassword} 3.110.43.79:8083"
+		
+ 	  sh "docker login -u admin -p admin123 3.110.43.79:8083"
  	  sh "docker tag sabarinathand96/myweb:0.0.2 3.110.43.79:8083/sabari:1.0.0"
-		}
+		
  	  sh "docker push 3.110.43.79:8083/sabari:1.0.0"
 		}
 	

@@ -25,7 +25,7 @@ node{
 	sh "docker login -u sabarinathand96 -p ${dockerPassword}"
 	}
 	sh "docker push sabarinathand96/myweb:0.0.2"
-	}
+	
 	
 	
 	stage('Nexus Image Push'){
@@ -34,7 +34,7 @@ node{
 	//}
 		//withCredentials([string (credentialsId: 'dockerPass' , variable :'dockerPassword')]){
  	  sh "docker login -u admin -p ${dockerPassword} 3.110.43.79:8084"
-		//}
+	}
  	  sh 'docker tag sabarinathand96/myweb:0.0.2 3.110.43.79:8084/sabari:1.0.0'
 		
  	  sh 'docker push 3.110.43.79:8084/sabari:1.0.0'

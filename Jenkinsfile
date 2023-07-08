@@ -21,7 +21,7 @@ node{
 
 	stage('Docker Image Push'){
 	withCredentials([string (credentialsId: 'dockerPass' , variable :'dockerPassword')]) {
-	sh 'docker login -u sabarinathand96 -p ${dockerPassword}"
+	sh "docker login -u sabarinathand96 -p ${dockerPassword}"
 	}
 	sh "docker push sabarinathand96/myweb:0.0.2"
 	}

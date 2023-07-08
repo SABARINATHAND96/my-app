@@ -33,7 +33,7 @@ node{
 		//nexusPassword=credentialsId('nexusPass')
 	//}
 		withCredentials([string (credentialsId: 'nexusPass' , variable :'nexusPassword')]){
- 	  sh "sudo docker login -u admin --p ${nexusPassword}"
+ 	  sh "sudo docker login -u admin -p ${nexusPassword}"
 		}
  	  sh 'sudo docker tag sabarinathand96/myweb:0.0.2 3.110.43.79:8084/sabari:1.0.0'
 		

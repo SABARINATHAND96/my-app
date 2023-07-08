@@ -27,9 +27,13 @@ node{
 	sh "docker push sabarinathand96/myweb:0.0.2"
 	}
 	
+	
 	stage('Nexus Image Push'){
-		withCredentials([string (credentialsId: 'nexusPass' , variable :'dockerPasswordd')]){
- 	  sh "docker login -u admin --password-stdin ${dockerPasswordd}"
+		environment{
+		nexusPassword=credentials('nexusPass')
+	}
+		//withCredentials([string (credentialsId: 'nexusPass' , variable :'dockerPasswordd')]){
+ 	  sh "docker login -u admin --password-stdin $nexusPassword"
  	  sh "docker tag sabarinathand96/myweb:0.0.2 3.110.43.79:8084/sabari:1.0.0"
 		
  	  sh "docker push 3.110.43.79:8084/sabari:1.0.0"

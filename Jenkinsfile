@@ -30,7 +30,7 @@ node{
  	  sh "docker login -u admin -p ${nexusPassword} 3.110.43.79:8083"
  	  sh "docker tag sabarinathand96/myweb:0.0.2 3.110.43.79:8083/sabari:1.0.0"
 			}
- 	  sh 'docker push 3.110.43.79:8083/sabari:1.0.0'
+ 	  sh "docker push 3.110.43.79:8083/sabari:1.0.0"
 	   
 	}
 	stage('Remove Previous Container'){

@@ -1,3 +1,4 @@
+
 node{
    stage('SCM Checkout'){
      git 'https://github.com/SABARINATHAND96/my-app.git'
@@ -38,4 +39,5 @@ node{
    stage('Docker deployment'){
    sh 'docker run -d -p 8090:8080 --name tomcattest saidamo/myweb:0.0.2' 
    }
+}
 }

@@ -16,7 +16,7 @@ node{
 	        }
 	    }
    stage('Build Docker Image'){
-	sh 'docker build -t sabarinathand96/myweb :0.0.2 . '
+	sh 'docker build -t sabarinathand96/myweb:0.0.2 .'
 	}
 
 	stage('Docker Image Push'){
